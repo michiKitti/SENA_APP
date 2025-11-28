@@ -1,0 +1,86 @@
+{% extends "master.html" %}
+{% load static %} 
+
+{% block title %}Inicio - SENA APP{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-5">
+        <div class="p-5 text-white bg-success rounded-3 shadow-lg">
+            <h1 class="display-4">Bienvenido a SENA APP</h1>
+            <p class="lead">Sistema de Gestión de Aprendices del Servicio Nacional de Aprendizaje</p>
+            <hr class="my-4 bg-light">
+            <p>Administra y consulta la información de los aprendices e instructores de manera eficiente.</p>
+            
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <a class="btn btn-light btn-lg" href="{% url 'aprendices:lista_aprendices' %}" role="button">
+                    Ver Aprendices
+                </a>
+                <a class="btn btn-outline-light btn-lg" href="#" role="button">
+                    Ver Instructores
+                </a>
+                <a class="btn btn-outline-light btn-lg" href="#" role="button">
+                    Ver Programas
+                </a>
+                <a class="btn btn-outline-light btn-lg" href="#" role="button">
+                    Ver Cursos
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row my-4">
+    <div class="col-12 text-center mb-5">
+        <img src="{% static 'imagen3.png' %}" alt="Logo SENA" class="img-fluid rounded-3 shadow-sm" style="max-height: 250px; border: 4px solid #39b54a;">
+    </div>
+</div>
+
+<div class="row mt-4 g-4">
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm border-success">
+            <div class="card-body">
+                <h5 class="card-title text-success">Lista de Aprendices</h5>
+                <p class="card-text">Consulta todos los aprendices registrados en el sistema.</p>
+                <p class="card-text">Total de Aprendices: <strong>{{ total_aprendices|default:37 }}</strong></p>
+                <a href="{% url 'aprendices:lista_aprendices' %}" class="btn btn-success w-100 mt-2">Ver Lista</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Lista de Instructores</h5>
+                <p class="card-text">Consulta todos los instructores registrados en el sistema.</p>
+                <p class="card-text">Total de Instructores: <strong>{{ total_instructores|default:8 }}</strong></p>
+                <a href="#" class="btn btn-outline-primary w-100 mt-2">Ver Lista</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-info">Lista de Programas</h5>
+                <p class="card-text">Consulta todos los programas registrados en el sistema.</p>
+                <p class="card-text">Total de Programas: <strong>{{ total_programas|default:5 }}</strong></p>
+                <a href="#" class="btn btn-outline-info w-100 mt-2">Ver Lista</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-warning">Lista de Cursos</h5>
+                <p class="card-text">Consulta todos los Cursos registrados en el sistema.</p>
+                <p class="card-text">Total de Cursos: <strong>{{ total_cursos|default:2 }}</strong></p>
+                <p class="card-text">Cursos Activos: <strong>{{ cursos_activos|default:1 }}</strong></p>
+                <a href="#" class="btn btn-outline-warning w-100 mt-2">Ver Lista</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

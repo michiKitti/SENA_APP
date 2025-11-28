@@ -1,0 +1,28 @@
+{% block title %}Lista de Aprendices SENA - SENA APP{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Lista de Aprendices SENA</h2>
+        </div>
+    </div>
+</div>
+
+{% for aprendiz in lista_aprendices %}
+<div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+
+    <h3>Nombre: {{aprendiz.nombre}}</h3>
+    <h3>Apellido: {{aprendiz.apellido}}</h3>
+    <h3>Documento: {{aprendiz.documento}}</h3>
+    <h3>Correo: {{aprendiz.correo}}</h3>
+    <h3>Telefono: {{aprendiz.telefono}}</h3>
+    
+    <hr>
+{% endfor %}
+{% endblock %}
