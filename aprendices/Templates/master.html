@@ -1,11 +1,15 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 <html lang="es">
-  <head>
+<head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'mystyles.css' %}">
+    <title>{% block title %}{% end block %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
       {% load bootstrap5 %}
       {% bootstrap_css %}
       {% bootstrap_javascript %}
@@ -18,11 +22,11 @@
                 <img width="50px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX6Gat1r36ATdBS7sTqqFH8TvIVPMkqsdLgw&s" alt="Logo Sena" class="me-2">
                 <strong>SENA APP</strong>
             </a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -41,7 +45,7 @@
 
     <main class="container mt-4">
         {% block content %}
-        {% endblock %}
+        {% end-block %}
     </main>
 
     <footer class="bg-dark text-white text-center py-3 mt-5">
@@ -50,6 +54,6 @@
         </div>
     </footer>
 
-    
+
 </body>
 </html>
