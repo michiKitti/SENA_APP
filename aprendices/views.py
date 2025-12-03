@@ -1,7 +1,7 @@
 from django.template import loader
 from django.http import HttpResponse
 
-from .models import Aprendiz, Instructor
+from .models import Aprendiz
 
 
 def aprendices(request):
@@ -27,6 +27,3 @@ def inicio(request):
     template = loader.get_template('main.html')
     return HttpResponse(template.render())
 
-def lista_instructores(request):
-    instructores = Instructor.objects.all()
-    return render(request, "lista_instructores.html", {"instructores": instructores})

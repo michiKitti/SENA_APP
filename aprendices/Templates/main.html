@@ -1,25 +1,25 @@
 {% extends "master.html" %}
-{% load static %} 
+ 
 
-{% block title %}Inicio - SENA APP{% end block %}
+{% block title %}Inicio - SENA APP{% endblock %}
 
 {% block content %}
 <div class="row">
     <div class="col-12 mb-5">
-        <div class="p-5 text-white bg-success rounded-3 shadow-lg">
+         <div class="jumbotron bg-success text-white p-5 rounded">
             <h1 class="display-4">Bienvenido a SENA APP</h1>
             <p class="lead">Sistema de Gestión de Aprendices del Servicio Nacional de Aprendizaje</p>
-            <hr class="my-4 bg-light">
+            <hr class="my-4">
             <p>Administra y consulta la información de los aprendices e instructores de manera eficiente.</p>
             
-            <div class="d-flex flex-wrap gap-2 mt-4">
+            <a  class="d-flex flex-wrap gap-2 mt-4">
                 <a class="btn btn-light btn-lg" href="{% url 'aprendices:lista_aprendices' %}" role="button">
                     Ver Aprendices
                 </a>
-                <a class="btn btn-outline-light btn-lg" href="#" role="button">
-                    Ver Instructores
+                <a class="btn btn-outline-light btn-lg" href="{% url 'instructores:lista_instructores' %}" role="button">
+                    Ver instructores
                 </a>
-                <a class="btn btn-outline-light btn-lg" href="#" role="button">
+                <a class="btn btn-outline-light btn-lg" href="{% url 'programas:lista_programas' %}" role="button">
                     Ver Programas
                 </a>
                 <a class="btn btn-outline-light btn-lg" href="#" role="button">
@@ -32,7 +32,7 @@
 
 <div class="row my-4">
     <div class="col-12 text-center mb-5">
-        <img src="{% static 'imagen3.png' %}" alt="Logo SENA" class="img-fluid rounded-3 shadow-sm" style="max-height: 250px; border: 4px solid #39b54a;">
+       
     </div>
 </div>
 
@@ -40,10 +40,10 @@
     <div class="col-md-6 col-lg-3">
         <div class="card h-100 shadow-sm border-success">
             <div class="card-body">
-                <h5 class="card-title text-success">Lista de Aprendices</h5>
+                <h5 class="card-title text-success">lista de Aprendices</h5>
                 <p class="card-text">Consulta todos los aprendices registrados en el sistema.</p>
                 <p class="card-text">Total de Aprendices: <strong>{{ total_aprendices|default:37 }}</strong></p>
-                <a href="{% url 'aprendices:lista_aprendices' %}" class="btn btn-success w-100 mt-2">Ver Lista</a>
+                <a href="{% url 'aprendices:lista_aprendices' %}" class="btn btn-success">Ver Lista</a>
             </div>
         </div>
     </div>
@@ -51,11 +51,14 @@
     <div class="col-md-6 col-lg-3">
         <div class="card h-100 shadow-sm">
             <div class="card-body">
-                <h5 class="card-title text-primary">Lista de Instructores</h5>
+                <h5 class="card-title">Lista de instructores</h5>
                 <p class="card-text">Consulta todos los instructores registrados en el sistema.</p>
-                <p class="card-text">Total de Instructores: <strong>{{ total_instructores|default:8 }}</strong></p>
-                <a href="#" class="btn btn-outline-primary w-100 mt-2">Ver Lista</a>
-            </div>
+                <p class="card-text">Total de instructores: {{ total_instructores }}</p>
+                <a href="{% url 'instructores:lista_instructores' %}">
+                    <button type="button" class="btn btn-success">Ver Lista</button>
+                </a>
+                           
+                
         </div>
     </div>
 
@@ -65,7 +68,8 @@
                 <h5 class="card-title text-info">Lista de Programas</h5>
                 <p class="card-text">Consulta todos los programas registrados en el sistema.</p>
                 <p class="card-text">Total de Programas: <strong>{{ total_programas|default:5 }}</strong></p>
-                <a href="#" class="btn btn-outline-info w-100 mt-2">Ver Lista</a>
+                <a href="{% url 'programas:lista_programas' %}">
+                <button type= class="btn btn-outline-info w-100 mt-2">Ver Lista</a>
             </div>
         </div>
     </div>
@@ -83,4 +87,4 @@
     </div>
 </div>
 
-{% end block %}
+{% endblock %}
